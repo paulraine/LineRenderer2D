@@ -136,7 +136,7 @@ namespace Game.Core.Rendering
 
         protected virtual void Start()
         {
-            if(!Application.isPlaying)
+            if (!Application.isPlaying)
             {
                 return;
             }
@@ -163,7 +163,7 @@ namespace Game.Core.Rendering
             ApplyLayoutChanges();
             ApplyPointPositionChanges();
 
-            if(CurrentCamera != null)
+            if (CurrentCamera != null)
             {
                 RefreshMaterial();
             }
@@ -171,7 +171,7 @@ namespace Game.Core.Rendering
 
         protected virtual void LateUpdate()
         {
-            if(CurrentCamera == null)
+            if (CurrentCamera == null)
             {
                 return;
             }
@@ -182,7 +182,7 @@ namespace Game.Core.Rendering
                 SendLayoutToGPU();
             }
 
-            if(m_isPositionsDirty || m_AutoApplyPositionChanges)
+            if (m_isPositionsDirty || m_AutoApplyPositionChanges)
             {
                 m_isPositionsDirty = false;
                 SendPointPositionsToGPU();
@@ -255,7 +255,7 @@ namespace Game.Core.Rendering
                 m_packedPoints = new Color[m_packedPointsCount];
             }
 
-            if(m_packedPointsTexture == null || m_packedPointsTexture.width < m_packedPointsCount)
+            if (m_packedPointsTexture == null || m_packedPointsTexture.width < m_packedPointsCount)
             {
                 m_packedPointsTexture = new Texture2D(m_packedPointsCount, 1, TextureFormat.RGBAFloat, false, true);
             }
@@ -335,7 +335,7 @@ namespace Game.Core.Rendering
 
             for (int i = 0; i < points.Count; ++i)
             {
-                bounds.x = bounds.x > points[i].x ? points[i].x 
+                bounds.x = bounds.x > points[i].x ? points[i].x
                                                   : bounds.x;
                 bounds.y = bounds.y < points[i].y ? points[i].y
                                                   : bounds.y;
@@ -361,7 +361,7 @@ namespace Game.Core.Rendering
 
 #if UNITY_EDITOR
 
-            if(m_isLayoutDirty)
+            if (m_isLayoutDirty)
             {
                 m_isLayoutDirty = false;
                 SendLayoutToGPU();
